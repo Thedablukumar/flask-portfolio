@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flask Portfolio</title>
+</head>
+<body>
+
+<h1>Backend Portfolio – Dablu Kumar</h1>
+
+<button onclick="sendData()">Send Test Data</button>
+
+<script>
+function sendData() {
+  fetch("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: "Dablu Kumar",
+      email: "dablukr175@gmail.com",
+      message: "Hello from frontend"
+    })
+  })
+  .then(res => res.json())
+  .then(data => alert(data.message));
+}
+</script>
+
+</body>
+</html>
